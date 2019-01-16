@@ -201,3 +201,48 @@ html body p {
   font-size: 1.8rem;
   margin: 2% 2%;
 }
+.pageContainer .aboutMe {
+  border: 1px solid green;
+  width: 90%;
+  margin: 3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pageContainer .aboutMe .aboutMe__left {
+  border: 1px solid aqua;
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  flex-direction: column;
+  width: 50%;
+  padding: 3%;
+  margin: 1% 5%;
+}
+.pageContainer .aboutMe .aboutMe__left h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 3%;
+}
+.pageContainer .aboutMe .aboutMe__right {
+  border: 1px solid greenyellow;
+  padding: 2%;
+  width: 50%;
+  margin: 1% 5%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  flex-direction: column;
+}
+.pageContainer .aboutMe h3 {
+  font-size: 2.3rem;
+}
+.pageContainer .aboutMe ul {
+  border: 1px solid gray;
+  margin: 4% 0;
+}
+.pageContainer .aboutMe ul li {
+  font-size: 2rem;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}

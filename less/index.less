@@ -163,4 +163,54 @@ html {
 			margin: 2% 2%;
 		}
 	}
+
+	.aboutMe {
+		border: 1px solid green;
+		width: 90%;
+		margin: 3%;
+		.custom-layout(space-between, center);
+
+		.aboutMe__left{
+			border: 1px solid aqua;
+			.custom-layout(flex-start, start);
+			flex-direction: column;
+			width: 50%;
+			padding: 3%;
+			margin: 1% 5%;
+
+			h2 {
+				font-size: 1.8rem;
+				font-weight: 600;
+				margin-bottom: 3%;
+			}
+		}
+	}
+
+	.aboutMe {
+
+		.aboutMe__right {
+			border: 1px solid greenyellow;
+			padding: 2%;
+			width: 50%;
+			margin: 1% 5%;
+			.custom-layout(flex-start, start);
+			flex-direction: column;
+		}
+
+		h3 {
+			font-size: 2.3rem;
+		}
+
+		ul {
+			border: 1px solid gray;
+			margin: 4% 0;
+			li {
+				font-size: 2rem;
+				border-top: 1px solid gray;
+				border-bottom: 1px solid gray;
+			}
+		}
+	}
+
+
 }
