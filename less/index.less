@@ -1,5 +1,5 @@
 // Is this working?
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -13,8 +13,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -25,7 +25,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -53,7 +53,114 @@ table {
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+html {
+	height: 100%;
+	font-size: 62.5%;
+
+	body {
+		height: 100%;
+
+		h1 {
+			font-size: @heading1;
+			font-weight: @heading1Weight;
+		}
+
+		p {
+			font-size: 1.6rem;
+			font-weight: 300;
+			line-height: 1.2;
+		}
+	}
+
 }
 
+//variables
+@bg-color: #E9ECEF;
+
+@heading1: 2.4rem;
+
+@heading1Weight: 700;
+
+@btn-color: #808080;
+
+// parametric mix-in
+.custom-layout(@justify, @align) {
+	  display: flex;
+	    justify-content: @justify;
+		  align-items: @align;
+
+}
+
+// mixin
+
+.mainHeading() {
+	font-weight: @heading1Weight;
+	font-size: @heading1;
+}
+
+
+.pageContainer {
+	max-width: 80%;
+	margin: 0 auto;
+	border: 1px solid red;
+	//testing
+	height: 100%;
+
+	header {
+		margin: 2%;
+
+		.flexNav {
+			.custom-layout(flex-end, center);
+
+			a {
+				text-decoration: none;
+				margin: 0 1%;
+				font-size: 1.8rem;
+				color: black;
+			}
+		}
+	}
+
+	.heroSection {
+		border: 1px solid blue;
+		margin: 2% 3%;;
+		height: 50%;
+		background: @bg-color;
+		flex-direction: column;
+		.custom-layout(flex-start, start);
+
+		img {
+			height: 250px;
+			width: 250px;
+			margin-top: 4%;
+			margin-left: 2%;
+		}
+
+		h1 {
+			margin: 2%;
+		}
+
+		.line {
+			border-top: 1px solid darkgray;
+			width: 80%;
+			margin: .5% 2%;
+		}
+
+		p {
+			margin: .5% 2%;
+		}
+	}
+
+	.heroSection {
+
+		.heroSection__btn {
+
+			background: @btn-color;
+			color: white;
+			height: 25px;
+			width: 100px;
+			font-size: 1.8rem;
+			margin: 2% 2%;
+		}
+	}
+}
