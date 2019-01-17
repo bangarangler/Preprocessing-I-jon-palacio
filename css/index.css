@@ -242,7 +242,7 @@ html body p {
 }
 .pageContainer .aboutMe {
   /*border: 1px solid green;*/
-  width: 90%;
+  width: 100%;
   margin: 3%;
   display: flex;
   justify-content: space-between;
@@ -254,6 +254,7 @@ html body p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: 0 auto;
   }
 }
 .pageContainer .aboutMe .aboutMe__left {
@@ -305,9 +306,11 @@ html body p {
 }
 .pageContainer .aboutMe ul {
   border: 1px solid gray;
+  width: 100%;
   margin: 4% 0;
 }
 .pageContainer .aboutMe ul li {
+  width: 100%;
   font-size: 2rem;
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;

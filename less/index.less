@@ -213,7 +213,7 @@ html {
 
 	.aboutMe {
 		/*border: 1px solid green;*/
-		width: 90%;
+		width: 100%;
 		margin: 3%;
 		.custom-layout(space-between, center);
 
@@ -221,6 +221,7 @@ html {
 		@media(max-width: 500px) {
 			.custom-layout(center, center);
 			flex-direction: column;
+			margin: 0 auto;
 		}
 
 		.aboutMe__left{
@@ -270,8 +271,10 @@ html {
 
 		ul {
 			border: 1px solid gray;
+			width: 100%;
 			margin: 4% 0;
 			li {
+				width: 100%;
 				font-size: 2rem;
 				border-top: 1px solid gray;
 				border-bottom: 1px solid gray;
