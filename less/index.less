@@ -1,5 +1,5 @@
 // Is this working?
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -13,8 +13,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -25,7 +25,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -53,7 +53,335 @@ table {
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+html {
+	height: 100%;
+	font-size: 62.5%;
+	font-family: @crazy-font;
+
+	body {
+		height: 100%;
+
+		h1 {
+			font-size: @heading1;
+			font-weight: @heading1Weight;
+		}
+
+		p {
+			font-size: 1.6rem;
+			font-weight: 300;
+			line-height: 1.2;
+		}
+	}
+
 }
 
+//variables
+@bg-color: #E9ECEF;
+
+@heading1: 2.4rem;
+
+@heading1Weight: 700;
+
+@btn-color: #808080;
+
+@heading2: 2.0rem;
+
+@heading2weight: 600;
+
+@crazy-font: 'ZCOOL KuaiLe', cursive;
+
+// parametric mix-in
+.custom-layout(@justify, @align) {
+	  display: flex;
+	    justify-content: @justify;
+		  align-items: @align;
+
+}
+
+// mixin
+
+.mainHeading() {
+	font-weight: @heading1Weight;
+	font-size: @heading1;
+}
+
+.secondaryHeading() {
+	font-weight: @heading2;
+	font-size: @heading2weight;
+}
+
+
+.pageContainer {
+	max-width: 80%;
+	margin: 0 auto;
+	/*border: 1px solid red;*/
+	//testing
+	/*height: 100%;*/
+
+	@media(max-width: 500px) {
+		max-width: 100%;
+
+
+	}
+
+	header {
+		margin: 2%;
+
+		.flexNav {
+			.custom-layout(flex-end, center);
+
+			@media(max-width: 500px) {
+				display: flex;
+				flex-direction: column;
+			}
+
+
+			a {
+				text-decoration: none;
+				margin: 0 1%;
+				font-size: 1.8rem;
+				color: black;
+
+				@media(max-width: 500px) {
+					font-size: 3rem;
+					padding: 3%;
+				}
+			}
+		}
+	}
+
+	.heroSection {
+		/*border: 1px solid blue;*/
+		margin: 2% 3%;;
+		height: auto;
+		background: @bg-color;
+		flex-direction: column;
+		.custom-layout(flex-start, start);
+
+		@media(max-width: 500px) {
+			width: 80%;
+			margin: 0 auto;
+		}
+
+		img {
+			height: 250px;
+			width: 250px;
+			margin-top: 4%;
+			margin-left: 2%;
+
+			@media(max-width: 500px) {
+				margin: 2% auto;
+
+			}
+		}
+
+		h1 {
+			margin: 2%;
+		}
+
+		.line {
+			border-top: 1px solid darkgray;
+			width: 80%;
+			margin: .5% 2%;
+
+			@media(max-width: 500px) {
+				margin: 2% auto;
+			}
+		}
+
+		p {
+			margin: .5% 2%;
+		}
+	}
+
+	.heroSection {
+
+		.heroSection__btn {
+
+			background: @btn-color;
+			color: white;
+			height: 25px;
+			width: 100px;
+			font-size: 1.8rem;
+			margin: 2% 2%;
+
+			@media(max-width: 500px) {
+				margin: 2% auto;
+			}
+		}
+	}
+
+	.aboutMe {
+		/*border: 1px solid green;*/
+		width: 100%;
+		margin: 3%;
+		.custom-layout(space-between, center);
+
+
+		@media(max-width: 500px) {
+			.custom-layout(center, center);
+			flex-direction: column;
+			margin: 0 auto;
+		}
+
+		.aboutMe__left{
+			/*border: 1px solid aqua;*/
+			.custom-layout(flex-start, start);
+			flex-direction: column;
+			width: 50%;
+			padding: 3%;
+			margin: 1% 5%;
+
+			@media(max-width: 500px) {
+				.custom-layout(center, center);
+				width: 100%;
+			}
+
+			h2 {
+				font-size: 1.8rem;
+				font-weight: 600;
+				margin-bottom: 3%;
+			}
+		}
+	}
+
+	.aboutMe {
+
+		.aboutMe__right {
+			/*border: 1px solid greenyellow;*/
+			padding: 2%;
+			width: 50%;
+			margin: 1% 5%;
+			.custom-layout(flex-start, start);
+			flex-direction: column;
+
+			@media(max-width: 500px) {
+				.custom-layout(center, center);
+				width: 100%;
+
+				ul li {
+					font-size: 2.8rem;
+				}
+			}
+		}
+
+		h3 {
+			font-size: 2.3rem;
+		}
+
+		ul {
+			border: 1px solid gray;
+			width: 100%;
+			margin: 4% 0;
+			li {
+				width: 100%;
+				font-size: 2rem;
+				border-top: 1px solid gray;
+				border-bottom: 1px solid gray;
+			}
+		}
+	}
+
+	.workHist {
+		padding: 3%;
+
+		@media(max-width: 500px) {
+			display: flex;
+			.custom-layout(center, center);
+			flex-direction: column;
+		}
+
+		h2 {
+		  font-size: @heading2;
+		  font-weight: 400;
+		  /*background: pink;*/
+		  margin-bottom: .5%;
+		}
+
+		ul {
+			li {
+				font-size: 1.4rem;
+				margin: 0 10%;
+				text-align: start;
+			}
+		}
+
+		@media(max-width: 500px) {
+			text-align: start;
+			padding: 5%;
+			margin: 0 auto;
+			/*border: 1px solid red;*/
+		}
+	}
+
+	.row-1 {
+		width: 100%;
+		ul {
+			/*border: 1px solid orange;*/
+			.custom-layout(flex-start, center);
+		}
+
+		@media(max-width: 500px) {
+			.custom-layout(center, flex-start);
+			flex-direction: column;
+		}
+	}
+
+	.row-2 {
+		width: 100%;
+		ul {
+			/*border: 1px solid orange;*/
+			.custom-layout(flex-start, center);
+		}
+
+		@media(max-width: 500px) {
+			.custom-layout(center, flex-start);
+			flex-direction: column;
+		}
+}
+
+	.row-3 {
+		width: 100%;
+		ul {
+			/*border: 1px solid orange;*/
+			.custom-layout(flex-start, center);
+		}
+
+		@media(max-width: 500px) {
+			.custom-layout(center, flex-start);
+			flex-direction: column;
+			margin-left: -3%;
+		}
+	}
+
+	.row-4 {
+		width: 100%;
+		/*margin-left: -.5%;;*/
+		ul {
+			/*border: 1px solid orange;*/
+			.custom-layout(flex-start, center);
+		}
+
+		@media(max-width: 500px) {
+			.custom-layout(center, flex-start);
+			flex-direction: column;
+		}
+
+}
+
+
+
+
+}
+
+
+.footer {
+	.custom-layout(center, center);
+	max-width: 80%;
+	margin: 0 auto;
+	padding: 3%;
+	background: darkgray;
+	color: white;
+	/*border: 1px solid red;*/
+
+}
